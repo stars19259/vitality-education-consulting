@@ -1,0 +1,25 @@
+{
+  "name": "生命力教育咨询工作室",
+  "short_name": "生命力教育咨询",
+  "description": "培养真我幸福的好公民和未来世界的开创者",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#2ECC71",
+  "theme_color": "#2ECC71",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiByeD0iMjQiIGZpbGw9IiMyRUNDNzEiLz4KPHBhdGggZD0iTTk2IDQ4QzY5LjQ5IDQ4IDQ4IDY5LjQ5IDQ4IDk2czIxLjQ5IDQ4IDQ4IDQ4IDQ4LTQ4IDQ4LTQ4LTQ4LTQ4LTQ4LTQ4eiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTk2IDY0Yy0xNy42NyAwLTMyIDE0LjMzLTMyIDMyczE0LjMzIDMyIDMyIDMyIDMyLTE0LjMzIDMyLTMyLTE0LjMzLTMyLTMyLTMyeiIgZmlsbD0iIzJFRUM3MSIvPgo8L3N2Zz4K",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iNjQiIGZpbGw9IiMyRUNDNzEiLz4KPHBhdGggZD0iTTI1NiAxMjhjLTcwLjY5IDAtMTI4IDU3LjMxLTEyOCAxMjhzNTcuMzEgMTI4IDEyOCAxMjggMTI4LTU3LjMxIDEyOC0xMjgtNTcuMzEtMTI4LTEyOC0xMjh6IiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNMjU2IDE3MWMtNDcuMTIgMC04NSAzNy44OC04NSA4NXMzNy44OCA4NSA4NSA4NSA4NS0zNy44OCA4NS04NS0zNy44OC04NS04NS04NXoiIGZpbGw9IiMyRUNDNzEiLz4KPC9zdmc+Cg==",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["education", "business"],
+  "lang": "zh-CN",
+  "dir": "ltr"
+} 

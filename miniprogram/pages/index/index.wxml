@@ -1,0 +1,189 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 主页横幅 -->
+  <view class="hero">
+    <view class="hero-content">
+      <view class="hero-text">
+        <view class="hero-title">
+          <text class="title-line">培养真我幸福的好公民</text>
+          <text class="title-line">未来世界的开创者</text>
+        </view>
+        <text class="hero-subtitle">全球大中小学生、家长及职业人士的教育咨询专家</text>
+        
+        <!-- 统计数据 -->
+        <view class="hero-stats">
+          <view class="stat-item">
+            <text class="stat-number">{{stats.countries}}</text>
+            <text class="stat-label">国家学员</text>
+          </view>
+          <view class="stat-item">
+            <text class="stat-number">{{stats.coreAbilities}}</text>
+            <text class="stat-label">核心能力</text>
+          </view>
+          <view class="stat-item">
+            <text class="stat-number">{{stats.customization}}%</text>
+            <text class="stat-label">个性化定制</text>
+          </view>
+        </view>
+        
+        <!-- 操作按钮 -->
+        <view class="hero-buttons">
+          <button class="btn btn-primary" bindtap="onConsult">立即咨询</button>
+          <button class="btn btn-secondary" bindtap="onLearnMore">了解更多</button>
+        </view>
+      </view>
+      
+      <!-- 视觉元素 -->
+      <view class="hero-visual">
+        <view class="floating-elements">
+          <view class="floating-icon" style="animation-delay: 0s">
+            <text class="iconfont icon-graduation"></text>
+          </view>
+          <view class="floating-icon" style="animation-delay: 1s">
+            <text class="iconfont icon-heart"></text>
+          </view>
+          <view class="floating-icon" style="animation-delay: 2s">
+            <text class="iconfont icon-star"></text>
+          </view>
+          <view class="floating-icon" style="animation-delay: 3s">
+            <text class="iconfont icon-rocket"></text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 关于我们 -->
+  <view class="section about-section">
+    <view class="section-header">
+      <text class="section-title">关于生命力教育</text>
+      <text class="section-subtitle">成立于2018年，专注于服务全球大中小学生、家长及职业人士的教育咨询机构</text>
+    </view>
+    
+    <view class="about-cards">
+      <view class="about-card mission-card">
+        <view class="card-icon">
+          <text class="iconfont icon-target"></text>
+        </view>
+        <text class="card-title">教育使命</text>
+        <text class="card-content">培养真我幸福的好公民和未来世界的开创者</text>
+      </view>
+      
+      <view class="about-card vision-card">
+        <view class="card-icon">
+          <text class="iconfont icon-eye"></text>
+        </view>
+        <text class="card-title">教育愿景</text>
+        <text class="card-content">通过个性化导师制，帮助学员制定百年人生规划</text>
+      </view>
+      
+      <view class="about-card values-card">
+        <view class="card-icon">
+          <text class="iconfont icon-handshake"></text>
+        </view>
+        <text class="card-title">核心价值观</text>
+        <text class="card-content">高奉献教师团队、互相尊重、高薪酬的公平双赢理念</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 核心服务 -->
+  <view class="section services-section">
+    <view class="section-header">
+      <text class="section-title">核心服务项目</text>
+      <text class="section-subtitle">为不同年龄段和需求的学员提供个性化教育咨询服务</text>
+    </view>
+    
+    <view class="services-grid">
+      <view class="service-card" wx:for="{{services}}" wx:key="id" bindtap="onServiceTap" data-service="{{item}}">
+        <view class="service-icon">
+          <text class="iconfont icon-{{item.icon}}"></text>
+        </view>
+        <text class="service-title">{{item.title}}</text>
+        <text class="service-description">{{item.description}}</text>
+        <view class="service-features">
+          <text class="feature-item" wx:for="{{item.features}}" wx:key="*this" wx:for-item="feature">✓ {{feature}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 师资团队 -->
+  <view class="section team-section">
+    <view class="section-header">
+      <text class="section-title">国际化师资团队</text>
+      <text class="section-subtitle">来自哈佛、清华、北大等名校的教授、博导、博士后及优秀学霸</text>
+    </view>
+    
+    <view class="team-grid">
+      <view class="team-card {{item.id === 1 ? 'founder' : ''}}" wx:for="{{team}}" wx:key="id" bindtap="onTeamTap" data-member="{{item}}">
+        <view class="team-avatar">
+          <image wx:if="{{item.avatar}}" src="{{item.avatar}}" mode="aspectFill"></image>
+          <text wx:else class="iconfont icon-user"></text>
+        </view>
+        <text class="team-name">{{item.name}}</text>
+        <text class="team-title">{{item.title}}</text>
+        <view class="team-credentials">
+          <text class="credential-item" wx:for="{{item.credentials}}" wx:key="*this" wx:for-item="credential">{{credential}}</text>
+        </view>
+        <text wx:if="{{item.description}}" class="team-description">{{item.description}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 教育成果 -->
+  <view class="section achievements-section">
+    <view class="section-header">
+      <text class="section-title">卓越教育成果</text>
+      <text class="section-subtitle">覆盖各年龄段学员的显著成就</text>
+    </view>
+    
+    <view class="achievements-grid">
+      <view class="achievement-card" wx:for="{{achievements}}" wx:key="id">
+        <view class="achievement-icon">
+          <text class="iconfont icon-{{item.icon}}"></text>
+        </view>
+        <text class="achievement-title">{{item.title}}</text>
+        <text class="achievement-description">{{item.description}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 快速咨询 -->
+  <view class="section contact-section">
+    <view class="contact-card">
+      <view class="contact-header">
+        <text class="contact-title">开始您的教育咨询之旅</text>
+        <text class="contact-subtitle">立即联系我们，获得专业的教育指导</text>
+      </view>
+      
+      <view class="contact-info">
+        <view class="contact-item">
+          <text class="iconfont icon-wechat"></text>
+          <view class="contact-details">
+            <text class="contact-label">微信咨询</text>
+            <text class="contact-value">kaiwen251899</text>
+          </view>
+        </view>
+        
+        <view class="contact-item">
+          <text class="iconfont icon-location"></text>
+          <view class="contact-details">
+            <text class="contact-label">上课地点</text>
+            <text class="contact-value">清华校内、校外及线上腾讯会议</text>
+          </view>
+        </view>
+        
+        <view class="contact-item">
+          <text class="iconfont icon-clock"></text>
+          <view class="contact-details">
+            <text class="contact-label">预约时间</text>
+            <text class="contact-value">周一到周日8-23点</text>
+          </view>
+        </view>
+      </view>
+      
+      <button class="btn btn-primary btn-block" bindtap="onContact">立即咨询</button>
+    </view>
+  </view>
+</view> 

@@ -1,0 +1,53 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/about/about",
+    "pages/services/services",
+    "pages/team/team",
+    "pages/achievements/achievements",
+    "pages/contact/contact",
+    "pages/profile/profile"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#4CAF50",
+    "navigationBarTitleText": "生命力教育",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f8f9fa"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#4CAF50",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home-active.png"
+      },
+      {
+        "pagePath": "pages/services/services",
+        "text": "服务",
+        "iconPath": "images/services.png",
+        "selectedIconPath": "images/services-active.png"
+      },
+      {
+        "pagePath": "pages/team/team",
+        "text": "团队",
+        "iconPath": "images/team.png",
+        "selectedIconPath": "images/team-active.png"
+      },
+      {
+        "pagePath": "pages/contact/contact",
+        "text": "咨询",
+        "iconPath": "images/contact.png",
+        "selectedIconPath": "images/contact-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+} 
