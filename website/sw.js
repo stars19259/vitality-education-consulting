@@ -4,11 +4,12 @@ const urlsToCache = [
   '/index.html',
   '/styles.css',
   '/script.js',
-  'https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap',
+  '/manifest.json',
+  'https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css'
 ];
 
-// 安装事件
+// Install event
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
@@ -19,47 +20,25 @@ self.addEventListener('install', event => {
   );
 });
 
-// 获取事件
+// Fetch event
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request)
       .then(response => {
-        // 如果找到缓存的响应，返回它
-        if (response) {
-          return response;
-        }
-        
-        // 否则，从网络获取
-        return fetch(event.request).then(
-          response => {
-            // 检查是否收到有效响应
-            if(!response || response.status !== 200 || response.type !== 'basic') {
-              return response;
-            }
-
-            // 克隆响应
-            const responseToCache = response.clone();
-
-            caches.open(CACHE_NAME)
-              .then(cache => {
-                cache.put(event.request, responseToCache);
-              });
-
-            return response;
-          }
-        );
+        // Return cached version or fetch from network
+        return response || fetch(event.request);
       })
   );
 });
 
-// 激活事件
+// Activate event
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(cacheNames => {
       return Promise.all(
         cacheNames.map(cacheName => {
           if (cacheName !== CACHE_NAME) {
-            console.log('Deleting old cache');
+            console.log('Deleting old cache:', cacheName);
             return caches.delete(cacheName);
           }
         })
@@ -68,12 +47,12 @@ self.addEventListener('activate', event => {
   );
 });
 
-// 推送通知
+// Push notification event
 self.addEventListener('push', event => {
   const options = {
-    body: '生命力教育咨询工作室有新消息',
-    icon: '/icon-192.png',
-    badge: '/badge-72.png',
+    body: event.data ? event.data.text() : '生命力教育咨询有新消息！',
+    icon: 'images/icon-192.png',
+    badge: 'images/icon-192.png',
     vibrate: [100, 50, 100],
     data: {
       dateOfArrival: Date.now(),
@@ -82,23 +61,23 @@ self.addEventListener('push', event => {
     actions: [
       {
         action: 'explore',
-        title: '了解更多',
-        icon: '/icon-192.png'
+        title: '查看详情',
+        icon: 'images/icon-192.png'
       },
       {
         action: 'close',
         title: '关闭',
-        icon: '/icon-192.png'
+        icon: 'images/icon-192.png'
       }
     ]
   };
 
   event.waitUntil(
-    self.registration.showNotification('生命力教育咨询工作室', options)
+    self.registration.showNotification('生命力教育咨询', options)
   );
 });
 
-// 通知点击事件
+// Notification click event
 self.addEventListener('notificationclick', event => {
   event.notification.close();
 
